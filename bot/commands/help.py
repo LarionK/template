@@ -21,3 +21,11 @@ async def help_func(message: types.Message):
         'Помощь и справка о боте\n'
         'Для того, чтобы получить информацию о команде используй /h <команда>\n'
     )
+
+
+async def call_help_func(call: types.CallbackQuery):
+    await call.message.edit_text(
+        'Помощь и справка о боте\n'
+        'Для того, чтобы получить информацию о команде используй /h <команда>\n',
+        reply_markup=call.message.reply_markup
+    )

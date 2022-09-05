@@ -7,6 +7,8 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 aiogram = {url = "https://github.com/aiogram/aiogram/archive/refs/heads/dev-3.x.zip"}
+SQLAlchemy = "^1.4.40"
+asyncpg = "^0.26.0"
 
 [tool.poetry.dev-dependencies]
 
