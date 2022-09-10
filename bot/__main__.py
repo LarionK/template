@@ -3,8 +3,12 @@ import asyncio
 import logging
 from aiogram import Dispatcher, Bot
 from aiogram.types import BotCommand
+from sqlalchemy.engine import URL
 
-from commands import reqister_user_commands, bot_commands
+from commands import reqister_user_commands
+from bot.commands.bot_commands import bot_commands
+
+from db import BaseModel, create_async_engine, get_session_maker, proceed_schemas
 
 
 async def main() -> None:
@@ -19,6 +23,16 @@ async def main() -> None:
     await bot.set_my_commands(commands=commands_for_bot)
 
     reqister_user_commands(dp)
+
+    postgres_url = URL.create(
+        "postgresql+asyncpg",
+        username=
+    )
+
+    async_engine = create_async_engine(url=)
+    session_marer = get_session_maker(async_engine)
+    with session_marer() as session:
+        proceed_schemas(session, BaseModel.metadata)
 
     await dp.start_polling(bot)
 
